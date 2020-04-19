@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+
+%%% Imports %%%
+\usepackage{subfiles}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{chngcntr}
+
+%%% Configuración global %%%
+\addto\captionsspanish{
+  \renewcommand{\contentsname}
+    {Índice de Contenidos}
+}
+
+%%% Memoria %%%
+\begin{document}
+
+
+
+\section*{}
+\textbf{test}
+\emph{test}
+\underline{test}
+\newpage
+
+%%% Resumen y Abstract %%%
+\section*{Resumen y Abstract}
+\subfile{sections/resumen_y_abstract.tex}
+\newpage
+
+%%% Índice de Contenidos %%%
+\tableofcontents{}
+\newpage
+
+%%% Lista de Acrónimos %%%
+\section*{Lista de Acrónimos}
+\subfile{sections/lista_de_acronimos.tex}
+\newpage
+
+%%% Introducción %%%
+\section{Introducción}
+
+%%% Antecedentes o Marco Tecnológico %%%
+\section{Antecedentes o Marco Tecnológico}
+\subsection{Agricutura de Precisión}
+\subsection{Internet de las Cosas (IoT)}
+\subsection{Computación en la Nube}
+\subsection{Hardware IoT}
+\subsection{WIP: Protocolos de Comunicación y Topologías de Red para IoT (TODOTODOTODO)}
+\subsection{WIP: Ejemplos de Agricultura de Precisión}
+
+%%% Especificaciones y restricciones de diseño %%%
+\section{Especificaciones y restricciones de diseño}
+\subsection{Descripción de las tecnologías y servicios necesarios}
+\subsubsection{Amazon Web Services (AWS)}
+\subsubsection{Terraform}
+\subsubsection{Python y AWS SDK para Python (boto3)}
+
+
+%%% Descripción de la solución propuesta %%%
+\section{Descripción de la solución propuesta}
+\subsection{Solución propuesta}
+\subsection{Desarrollo de la solución}
+\subsubsection{Configuración inicial. Usuario terraform y credenciales de AWS}
+\subsubsection{Código de la infraestructura}
+\subsubsection{Código del simulador}
+\subsubsection{Código auxiliar}
+\subsubsection{Modelado de la base de datos (Elasticsearch)}
+\subsection{Despliegue de la solución}
+
+%%% Resultados %%%
+\section{Resultados}
+
+%%% Planos %%%
+\section{Planos}
+
+%%% Presupuesto %%%
+\section{Presupuesto}
+
+%%% Conclusiones %%%
+\section{Conclusiones}
+
+%%% Referencias %%%
+\section{Referencias}
+
+
+\end{document}
