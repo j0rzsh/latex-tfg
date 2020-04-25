@@ -1,33 +1,34 @@
-\documentclass[11pt]{article}
+% !TEX root = memoria.tex
+
+\documentclass[12pt]{article}
 
 %%% Imports %%%
-\usepackage{subfiles}
-\usepackage[spanish,es-tabla]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[margin=2cm]{geometry}
-\usepackage{fancyhdr}
-\usepackage{chngcntr}
+\usepackage[normalem]{ulem}
+\usepackage{subfiles} %% Multi file project
+\usepackage[spanish,es-tabla]{babel} %% Spanish language
+\usepackage[utf8]{inputenc} %% Allow utf-8 input
+\usepackage[margin=2cm]{geometry} %% Margin control
+\usepackage{fancyhdr} %% Headings and Footers
+\usepackage{titling} %% Title page
 
 %%% Configuración global %%%
 \addto\captionsspanish{
   \renewcommand{\contentsname}
-    {Índice de Contenidos}
+  {Índice de Contenidos}
 }
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\circ$}
 
-%%% Memoria %%%
+%%% Documento %%%
 \begin{document}
-
-
-
-\section*{}
-\textbf{test}
-\emph{test}
-\underline{test}
+%%% Portada %%%
+\subfile{sections/0-prev/01-portada.tex}
+\thispagestyle{empty}
 \newpage
 
 %%% Resumen y Abstract %%%
 \section*{Resumen y Abstract}
-\subfile{sections/resumen_y_abstract.tex}
+\subfile{sections/0-prev/02-resumen-y-abstract.tex}
 \newpage
 
 %%% Índice de Contenidos %%%
@@ -36,17 +37,27 @@
 
 %%% Lista de Acrónimos %%%
 \section*{Lista de Acrónimos}
-\subfile{sections/lista_de_acronimos.tex}
+\subfile{sections/0-prev/03-lista-de-acronimos.tex}
 \newpage
 
 %%% Introducción %%%
 \section{Introducción}
+\subfile{sections/1-introduccion/10-introduccion.tex}
+\newpage
 
 %%% Antecedentes o Marco Tecnológico %%%
 \section{Antecedentes o Marco Tecnológico}
+\subfile{sections/2-antecedentes-marco-tecnologico/20-antecedentes-marco-tecnologico}
+
 \subsection{Agricutura de Precisión}
+\subfile{sections/2-antecedentes-marco-tecnologico/21-agricultura-de-precision.tex}
+
 \subsection{Internet de las Cosas (IoT)}
+\subfile{sections/2-antecedentes-marco-tecnologico/22-internet-de-las-cosas.tex}
+
 \subsection{Computación en la Nube}
+\subfile{sections/2-antecedentes-marco-tecnologico/23-computacion-nube.tex}
+
 \subsection{Hardware IoT}
 \subsection{WIP: Protocolos de Comunicación y Topologías de Red para IoT (TODOTODOTODO)}
 \subsection{WIP: Ejemplos de Agricultura de Precisión}
