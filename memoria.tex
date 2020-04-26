@@ -10,10 +10,11 @@
 \usepackage[margin=2cm]{geometry} %% Márgenes
 \usepackage{fancyhdr} %% Encabezados y pies de página
 \usepackage{titling} %% Portada
-\usepackage{csquotes}
+\usepackage{csquotes} %% Requerido por biblatex
 \usepackage[sorting=none]{biblatex} %% Bibliografía
-\usepackage{graphicx}
-\usepackage{float}
+\usepackage{graphicx} %%Insertar imagenes
+\usepackage{float} %% Floats
+\usepackage{microtype} %% Justificar cuando hay carácteres especiales
 
 \graphicspath{ {./imagenes/} }
 \addbibresource{references.bib} %% Importar bibliografía
@@ -88,19 +89,16 @@
 
 %%% Descripción de la solución propuesta %%%
 \section{Descripción de la solución propuesta}
+\subsection{Solución propuesta}
 \subfile{sections/4-solucion-propuesta/410-solucion-propuesta.tex}
 
-\subsection{Solución propuesta}
-%\subfile{sections/4-solucion-propuesta/420-desarrollo-solucion.tex}
 
 \subsection{Desarrollo de la solución}
-%\subfile{}
-
 \subsubsection{Configuración inicial. Usuario terraform y credenciales de AWS}
-%\subfile{sections/4-solucion-propuesta/421-conf-inicial.tex}
+\subfile{sections/4-solucion-propuesta/421-conf-inicial.tex}
 
 \subsubsection{Código de la infraestructura}
-%\subfile{sections/4-solucion-propuesta/422-codigo-infra.tex}
+\subfile{sections/4-solucion-propuesta/422-codigo-infra.tex}
 
 \subsubsection{Código del simulador}
 %\subfile{sections/4-solucion-propuesta/423-codigo-simulador.tex}
