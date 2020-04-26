@@ -3,73 +3,73 @@
 \begin{document}
 
 \paragraph{}
-Para describir todos los servicios de Amazon Web Services, la documentación de referencia ha sido la propia documentación oficial de AWS. [11]
+Para describir todos los servicios de Amazon Web Services, la documentación de referencia ha sido la propia documentación oficial de AWS. \cite{awsdoc}
 \begin{itemize}
-    \item \textbf{Identity and Access Management (IAM)}
-          \par
-          Bajo este servicio AWS ofrece la posibilidad de crear usuarios, roles y políticas. Estos usuarios son propios de AWS y sirven para modificar la infraestructura que se despliega en AWS pero no son usuarios de aplicación.
-          \begin{itemize}
-              \item \textbf{IAM Users, IAM Policies, IAM Roles}
-                    \par
-                    Los IAM Users que se pueden crear pueden ser de dos tipos: usuarios normales de consola de AWS o usuario para acceso programático. Normalmente, el primer tipo se crea para personas que vayan a acceder a la consola web de AWS y el segundo tipo se utiliza para accesos mediante la CLI (Command Line Interface) de AWS o para agentes de despliegue como puede ser Terraform, el cual se explica más adelante en este capítulo.
-                    \par
-                    Las IAM Policies sirven para administrar los diferentes tipos de permisos que se pueden asignar a un usuario, mientras que los IAM Role se utilizan para conceder permisos a servicios de AWS sobre otros servicios de AWS, o para estrategias multi cuenta en las que se conceden permisos entre cuentas. Los IAM Roles tienen asignadas IAM Policies.
-                    \par
-                    Existen numerosos servicios aparte de IAM en AWS para administrar usuarios y accesos, sin embargo, para el caso de uso que supone este proyecto, no serán necesarios servicios adicionales.
-          \end{itemize}
+      \item \textbf{Identity and Access Management (IAM)}
+            \par
+            Bajo este servicio AWS ofrece la posibilidad de crear usuarios, roles y políticas. Estos usuarios son propios de AWS y sirven para modificar la infraestructura que se despliega en AWS pero no son usuarios de aplicación.
+            \begin{itemize}
+                  \item \textbf{IAM Users, IAM Policies, IAM Roles}
+                        \par
+                        Los IAM Users que se pueden crear pueden ser de dos tipos: usuarios normales de consola de AWS o usuario para acceso programático. Normalmente, el primer tipo se crea para personas que vayan a acceder a la consola web de AWS y el segundo tipo se utiliza para accesos mediante la CLI (Command Line Interface) de AWS o para agentes de despliegue como puede ser Terraform, el cual se explica más adelante en este capítulo.
+                        \par
+                        Las IAM Policies sirven para administrar los diferentes tipos de permisos que se pueden asignar a un usuario, mientras que los IAM Role se utilizan para conceder permisos a servicios de AWS sobre otros servicios de AWS, o para estrategias multi cuenta en las que se conceden permisos entre cuentas. Los IAM Roles tienen asignadas IAM Policies.
+                        \par
+                        Existen numerosos servicios aparte de IAM en AWS para administrar usuarios y accesos, sin embargo, para el caso de uso que supone este proyecto, no serán necesarios servicios adicionales.
+            \end{itemize}
 
-    \item \textbf{Networking}
-          \par
-          El apartado de redes dentro de AWS se basa en redes y subredes privadas las cuales comienzan sin acceso a Internet. En este subapartado se expondrán los servicios más relevantes que aplican a este proyecto.
-          \begin{itemize}
-              \item \textbf{Virtual Private Cloud (VPC) y Subnets}
-                    \par
-                    Las VPC conforman una red de tamaño máximo /16, la cual se puede dividir en Subnets en las cuales se podrán colocar los diferentes recursos que se quieran desplegar.
-              \item \textbf{Security Groups y Network Access Controls Lists (NACLs)}
-                    \par
-                    Conforman los Firewalls de AWS. Los Security Groups se asocian a instancias u otros servicios y contienen una política restrictiva por defecto. Deniegan el tráfico a todo lo que no esté contemplado en sus reglas. Por el contrario, los NACLs poseen una política permisiva por defecto y mediante sus reglas se puede denegar o permitir el tráfico de manera explícita a conveniencia.
-              \item \textbf{Route Tables }
-                    \par
-                    Las Route Tables son tablas de ruta normales sin ninguna peculiaridad específica. Por defecto las VPC contienen las rutas para poder intercomunicar los recursos desplegados en ellas.
-              \item \textbf{Internet Gateway y NAT Gateway }
-                    \par
-                    El Internet Gateway actúa como un punto de acceso que comunica las VPC con Internet. Sin desplegar este elemento, no existirá la conexión con Internet desde una VPC.
+      \item \textbf{Networking}
+            \par
+            El apartado de redes dentro de AWS se basa en redes y subredes privadas las cuales comienzan sin acceso a Internet. En este subapartado se expondrán los servicios más relevantes que aplican a este proyecto.
+            \begin{itemize}
+                  \item \textbf{Virtual Private Cloud (VPC) y Subnets}
+                        \par
+                        Las VPC conforman una red de tamaño máximo /16, la cual se puede dividir en Subnets en las cuales se podrán colocar los diferentes recursos que se quieran desplegar.
+                  \item \textbf{Security Groups y Network Access Controls Lists (NACLs)}
+                        \par
+                        Conforman los Firewalls de AWS. Los Security Groups se asocian a instancias u otros servicios y contienen una política restrictiva por defecto. Deniegan el tráfico a todo lo que no esté contemplado en sus reglas. Por el contrario, los NACLs poseen una política permisiva por defecto y mediante sus reglas se puede denegar o permitir el tráfico de manera explícita a conveniencia.
+                  \item \textbf{Route Tables }
+                        \par
+                        Las Route Tables son tablas de ruta normales sin ninguna peculiaridad específica. Por defecto las VPC contienen las rutas para poder intercomunicar los recursos desplegados en ellas.
+                  \item \textbf{Internet Gateway y NAT Gateway }
+                        \par
+                        El Internet Gateway actúa como un punto de acceso que comunica las VPC con Internet. Sin desplegar este elemento, no existirá la conexión con Internet desde una VPC.
 
-                    El NAT Gateway sirve para comunicar subredes privadas con las subredes públicas, entre otros usos. Son el elemento que permite dar acceso a Internet a subredes privadas.
-          \end{itemize}
+                        El NAT Gateway sirve para comunicar subredes privadas con las subredes públicas, entre otros usos. Son el elemento que permite dar acceso a Internet a subredes privadas.
+            \end{itemize}
 
-    \item \textbf{Storage}
-          \par
-          En AWS, el almacenamiento se ofrece mediante diferentes servicios que dan respuesta a diferentes tipos de almacenamiento como puede ser almacenamiento de objetos, almacenamiento en bases de datos o almacenamiento a nivel de bloque.
-          \begin{itemize}
-              \item \textbf{Simple Storage Service (S3)}
-                    \par
-                    S3 es el servicio que ofrece almacenamiento de objetos de AWS. Ofrece una gran disponibilidad y fiabilidad. Es posible utilizarlo para almacenar cualquier objeto de hasta 5TB de tamaño, y ofrece un tamaño total sin restricciones. Es posible utilizar este servicio para servir páginas web estáticas y como base de datos para logs de monitorización. Permite versionar los objetos, cifrarlos, controlar el acceso a los mismos, etc.
-              \item \textbf{Elastic Block Storage (EBS)}
-                    \par
-                    Este servicio ofrece almacenamiento a nivel de bloques utilizado para ser los volúmenes que tienen las instancias. Permite de manera sencilla hacer \textit{snapshots} y restaurarlos, y es el servicio que ofrece almacenamiento persistente para las instancias. Sino se selecciona un volumen EBS al lanzar una instancia, los datos que almacene se perderán al apagar la instancia.
-              \item \textbf{Bases de datos}
-                    \par
-                    AWS ofrece una gran cantidad de bases de datos, tanto relacionales como no relacionales, así como servicios propios de AWS como Amazon Aurora.
-          \end{itemize}
+      \item \textbf{Storage}
+            \par
+            En AWS, el almacenamiento se ofrece mediante diferentes servicios que dan respuesta a diferentes tipos de almacenamiento como puede ser almacenamiento de objetos, almacenamiento en bases de datos o almacenamiento a nivel de bloque.
+            \begin{itemize}
+                  \item \textbf{Simple Storage Service (S3)}
+                        \par
+                        S3 es el servicio que ofrece almacenamiento de objetos de AWS. Ofrece una gran disponibilidad y fiabilidad. Es posible utilizarlo para almacenar cualquier objeto de hasta 5TB de tamaño, y ofrece un tamaño total sin restricciones. Es posible utilizar este servicio para servir páginas web estáticas y como base de datos para logs de monitorización. Permite versionar los objetos, cifrarlos, controlar el acceso a los mismos, etc.
+                  \item \textbf{Elastic Block Storage (EBS)}
+                        \par
+                        Este servicio ofrece almacenamiento a nivel de bloques utilizado para ser los volúmenes que tienen las instancias. Permite de manera sencilla hacer \textit{snapshots} y restaurarlos, y es el servicio que ofrece almacenamiento persistente para las instancias. Sino se selecciona un volumen EBS al lanzar una instancia, los datos que almacene se perderán al apagar la instancia.
+                  \item \textbf{Bases de datos}
+                        \par
+                        AWS ofrece una gran cantidad de bases de datos, tanto relacionales como no relacionales, así como servicios propios de AWS como Amazon Aurora.
+            \end{itemize}
 
-    \item \textbf{Computing}
-          \begin{itemize}
-              \item \textbf{Elastic Compute Cloud (EC2)}
-                    \par
-                    Es el servicio de computación de AWS que permite lanzar instancias con las distribuciones de Windows o Linux que se quiera. No solo engloba las instancias, sino que el servicio EC2 agrupa también otro tipo de recursos como los anteriormente mencionados Security Groups, balanceadores de carga, etc.
-          \end{itemize}
+      \item \textbf{Computing}
+            \begin{itemize}
+                  \item \textbf{Elastic Compute Cloud (EC2)}
+                        \par
+                        Es el servicio de computación de AWS que permite lanzar instancias con las distribuciones de Windows o Linux que se quiera. No solo engloba las instancias, sino que el servicio EC2 agrupa también otro tipo de recursos como los anteriormente mencionados Security Groups, balanceadores de carga, etc.
+            \end{itemize}
 
-    \item \textbf{IoT Services}
-          \par
-          AWS posee un servicio denominado IoT Core bajo el cual se agrupan todos los recursos necesarios para gestionar una flota de dispositivos IoT. Bajo el IoT Core se pueden registrar dispositivos que se identificarán en AWS mediante certificados.
+      \item \textbf{IoT Services}
+            \par
+            AWS posee un servicio denominado IoT Core bajo el cual se agrupan todos los recursos necesarios para gestionar una flota de dispositivos IoT. Bajo el IoT Core se pueden registrar dispositivos que se identificarán en AWS mediante certificados.
 
-    \item \textbf{Otros servicios}
-          \begin{itemize}
-              \item \textbf{Elasticsearch Service}
-                    \par
-                    Este servicio ofrece un motor de Elasticsearch junto con Kibana como un servicio mediante el cual no es necesario mantener la computación que lo soporta. Esta clase de servicios son especialmente útiles en pruebas de concepto como la que se va a presentar en este proyecto.
-          \end{itemize}
+      \item \textbf{Otros servicios}
+            \begin{itemize}
+                  \item \textbf{Elasticsearch Service}
+                        \par
+                        Este servicio ofrece un motor de Elasticsearch junto con Kibana como un servicio mediante el cual no es necesario mantener la computación que lo soporta. Esta clase de servicios son especialmente útiles en pruebas de concepto como la que se va a presentar en este proyecto.
+            \end{itemize}
 \end{itemize}
 
 \end{document}

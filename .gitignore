@@ -5,5 +5,9 @@
 *.synctex.gz
 *.toc
 *.pdf
+*.run.xml
+*.bbl
+*.bcf
+*.blg
 __latexindent*
 .vscode

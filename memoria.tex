@@ -3,24 +3,24 @@
 \documentclass[12pt]{article}
 
 %%% Imports %%%
-\usepackage[normalem]{ulem}
-\usepackage{subfiles} %% Multi file project
-\usepackage[spanish,es-tabla]{babel} %% Spanish language
-\usepackage[utf8]{inputenc} %% Allow utf-8 input
-\usepackage[margin=2cm]{geometry} %% Margin control
-\usepackage{fancyhdr} %% Headings and Footers
-\usepackage{titling} %% Title page
+\usepackage[normalem]{ulem} %% Subrayado multilinea
+\usepackage{subfiles} %% Proyecto multi archivo
+\usepackage[spanish,es-tabla]{babel} %% Idioma español
+\usepackage[utf8]{inputenc} %% Permitir entrada utf-8
+\usepackage[margin=2cm]{geometry} %% Márgenes
+\usepackage{fancyhdr} %% Encabezados y pies de página
+\usepackage{titling} %% Portada
+\usepackage{csquotes}
+\usepackage[sorting=none]{biblatex} %% Bibliografía
 
-%%% Configuración global %%%
-\addto\captionsspanish{
-  \renewcommand{\contentsname}
-  {Índice de Contenidos}
-}
-\renewcommand{\labelitemi}{$\bullet$}
-\renewcommand{\labelitemii}{$\circ$}
+\addbibresource{references.bib} %% Importar bibliografía
+
+%%% Configuración del preamble %%%
+\input{preamble}
 
 %%% Documento %%%
 \begin{document}
+
 %%% Portada %%%
 \subfile{sections/0-prev/010-portada.tex}
 \thispagestyle{empty}
@@ -85,31 +85,31 @@
 
 %%% Descripción de la solución propuesta %%%
 \section{Descripción de la solución propuesta}
-%\subfile{}
+%\subfile{sections/4-solucion-propuesta/410-solucion-propuesta.tex}
 
 \subsection{Solución propuesta}
-%\subfile{}
+%\subfile{sections/4-solucion-propuesta/420-desarrollo-solucion.tex}
 
 \subsection{Desarrollo de la solución}
 %\subfile{}
 
 \subsubsection{Configuración inicial. Usuario terraform y credenciales de AWS}
-%\subfile{}
+%\subfile{sections/4-solucion-propuesta/421-conf-inicial.tex}
 
 \subsubsection{Código de la infraestructura}
-%\subfile{}
+%\subfile{sections/4-solucion-propuesta/422-codigo-infra.tex}
 
 \subsubsection{Código del simulador}
-%\subfile{}
+%\subfile{sections/4-solucion-propuesta/423-codigo-simulador.tex}
 
 \subsubsection{Código auxiliar}
-%\subfile{}
+%\subfile{sections/4-solucion-propuesta/424-codigo-aux.tex}
 
 \subsubsection{Modelado de la base de datos (Elasticsearch)}
-%\subfile{}
+%\subfile{sections/4-solucion-propuesta/425-modelado-elasticsearch.tex}
 
 \subsection{Despliegue de la solución}
-%\subfile{}
+%\subfile{sections/4-solucion-propuesta/430-despliegue.tex}
 
 %%% Resultados %%%
 \section{Resultados}
@@ -124,7 +124,8 @@
 \section{Conclusiones}
 
 %%% Referencias %%%
+\setcounter{secnumdepth}{0}
 \section{Referencias}
-
+\printbibliography[heading=none]
 
 \end{document}
