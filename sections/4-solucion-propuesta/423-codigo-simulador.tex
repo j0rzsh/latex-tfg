@@ -2,4 +2,24 @@
 
 \begin{document}
 
+\paragraph{}
+Se ha codificado un simulador para evitar tener que recurrir a dispositivos físicos que no solo aumentarían el presupuesto de este proyecto, sino que implicaría tener que adquirir dichos dispositivos y el tiempo que ello supondría.
+
+\paragraph{}
+Este simulador se basa en un programa escrito en Python que implementa un cliente MQTT. Para ejecutarlo se ha decidido implementar en un contenedor Docker \cite{docker}. Docker es una tecnología de contenedores que permite virtualizar parte de un sistema operativo con objeto de ser más liviano que una máquina virtual pero que permita aislar por completo el entorno de ejecución de una aplicación. Esta tecnología no es objetivo de estudio en este proyecto por lo que no se va a profundizar en ella, sin embargo, se ha decidido ejecutar el simulador a través de ella ya que permite una portabilidad suficiente para poder ejecutarla en cualquier sitio que tenga instalado el motor Docker.
+
+\paragraph{}
+En resumen, el simulador implementa n dispositivos ejecutando n procesos en Python de manera simultánea, los cuales generan datos aleatorios de diferentes medidas relacionadas con una tierra de cultivo (temperatura ambiente, humedad, presión, etc.). En el caso del \textit{MVP} se ha decidido implementar cuatro dispositivos que harán la función de sensores ubicados en la tierra de cultivo virtual.
+
+\paragraph{}
+El código se compone de:
+
+\begin{enumerate}
+    \item Un archivo llamado Dockerfile en el cual se encuentran las especificaciones del contenedor Docker a ejecutar.
+
+    \item Un archivo denominado iot\_thing\_simulator.py que implementa el simulador, junto a un archivo llamado requirements.txt que contiene las dependencias del simulador.
+
+    \item Un archivo run.sh que es el que ejecutará el contenedor Docker y contiene las instrucciones de ejecución de los cuatro procesos Python del simulador.
+\end{enumerate}
+
 \end{document}

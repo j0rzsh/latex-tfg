@@ -2,4 +2,21 @@
 
 \begin{document}
 
+\paragraph{}
+Con el fin de automatizar todo lo posible el despliegue de la solución, se ha decidido crear dos scripts en Python que sirvan de ayuda para ello. Estos dos scripts son:
+
+\begin{enumerate}
+    \item init\_es\_indices.py: este script se ejecutará una sola vez antes de que los sensores comiencen a enviar datos desde el simulador. Lo que realiza este script es la inicialización (creación) de los índices de Elasticsearch que van a representar a cada una de las tierras de cultivo (se explicará en el siguiente apartado). Necesita dos archivos con la dirección de la base de datos Elasticsearch (dominio) y los índices (representando a las tierras de cultivo) a inicializar. Este script sirve para que la función Lambda que indexa en la base de datos no tenga que tratar de inicializar dicho índice en cada indexado. Así se asegura que el índice esté creado y no se realiza una petición a Elasticseach para tratar de crearle cada vez que se quiera indexar un dato.
+
+    \item save\_outputs\_terraform.py: este script recoge la salida de terraform una vez desplegada la infraestructura. Guarda en una carpeta con nombre config los siguientes datos:
+          \begin{itemize}
+              \item Certificados de los dispositivos IoT. Estos certificados se almacenan en el \textit{tfstate} mencionado anteriormente. Dicho \textit{tfstate} se encuentra cifrado dentro del Bucket S3 por lo que contiene la seguridad necesaria para el almacenaje de dichos certificados. Tal y como se describe en \cite{terraformsensitive}, se trata el \textit{tfstate} como datos sensibles y por tanto se controla su acceso mediante políticas de IAM y cifrado desde el lado del servidor.
+
+              \item Punto de acceso del dominio de Elasticsearch: se guarda para luego poder pasárselo como parámetro al script anteriormente comentado (init\_es\_indices.py).
+
+              \item Punto de acceso IoT de AWS: se guarda para poder pasárselo como parámetro al simulador.
+          \end{itemize}
+
+\end{enumerate}
+
 \end{document}
