@@ -1,0 +1,35 @@
+\documentclass[../../memoria.tex]{subfiles}
+
+\begin{document}
+
+\paragraph{}
+Toda la información sobre Terraform presentada en este apartado tiene como fuente la página oficial del producto [12].
+
+\paragraph{}
+Terraform es una herramienta codificada en el lenguaje Golang que sirve para crear, desplegar y versionar infraestructura. Utilizando \textit{IaC} es posible mantener una infraestructura mediante Terraform. Esta herramienta pertenece al fabricante Hashicorp y es una herramienta Open Source, gratuita y agnóstica del proveedor \textit{cloud} a utilizar.
+
+\paragraph{}
+Para AWS, Terraform no es más que un agente de despliegue representado como un IAM User destinado al acceso programático. Terraform es declarativo, lo que significa que la infraestructura que se despliegue será exactamente la que se indique en el código. Esto supone que, si en el código se crean 3 recursos del mismo servicio, siempre habrá 3 recursos, independientemente de las veces que se ejecute.
+
+\paragraph{}
+Terraform por sí mismo no puede crear recursos para AWS. Necesita de un \textit{provider} que exponga los recursos de AWS y entienda las interacciones necesarias a realizar contra la API de AWS.
+
+\paragraph{}
+Terraform dispone de varios comandos básicos:
+
+\begin{itemize}
+    \item \textbf{init}: mediante la ejecución de este comando, Terraform inicializa y descarga los recursos que necesite para la ejecución del código. En este paso Terraform descarga el provider (en este caso de AWS) y los recursos ubicados en las fuentes que se indiquen mediante el código (como, por ejemplo, el código de algún repositorio).
+    \item \textbf{plan}: mediante este comando se ejecuta un plan que muestra las acciones que se van a realizar sobre la infraestructura.
+
+    \item \textbf{apply}: este comando sirve para aplicar los cambios a la infraestructura. Al ejecutarle, Terraform realizará un plan y confirmará al usuario si desea aplicar los cambios indicados.
+
+    \item \textbf{destroy}: mediante este comando se puede destruir la infraestructura que figure en el archivo de estado de Terraform.
+\end{itemize}
+
+\paragraph{}
+La infraestructura se gestiona mediante el archivo de estado de Terraform (\textit{tfstate}). Esto significa que, si se realiza un cambio manual sobre una infraestructura desplegada mediante Terraform, al no estar reflejado en el \textit{tfstate}, Terraform no detectará este cambio y pueden surgir errores. Lo ideal es que una infraestructura desplegada con Terraform se gestione única y exclusivamente desde la herramienta para no generar conflictos. Este archivo de estado se puede almacenar de manera local o de manera remota para compartirlo entre diferentes usuarios o no perderlo por un posible fallo en una máquina local.
+
+\paragraph{}
+El hecho de utilizar Terraform para la realización de este proyecto radica en ser la herramienta más extendida actualmente para este cometido. Además, utilizando Terraform el código puede ser compartido fácilmente, y la infraestructura puede ser modificada de manera rápida y sencilla. Terraform se instala como un único binario en cualquier dispositivo Windows, Linux o Mac. También es compatible con FreeBSD, OpenBSD y Solaris.
+
+\end{document}
