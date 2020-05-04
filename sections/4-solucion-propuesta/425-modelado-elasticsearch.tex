@@ -2,4 +2,15 @@
 
 \begin{document}
 
+\paragraph{}
+Un aspecto importante del proyecto es el modelado de la base de datos. Para esta base de datos, como ya se ha indicado anteriormente, se ha elegido el motor Elasticsearch bajo el servicio \textit{serverless} de AWS Elasticsearch Service.
+
+\paragraph{}
+Elasticsearch es un motor de búsqueda en tiempo real y un sistema distribuido de almacenamiento \cite{elastic}. Si hubiera que identificar que tipo de base de datos es, se situaría dentro del grupo de bases de datos no relacionales (NoSQL) \cite{nosql}.
+
+\paragraph{}
+Elasticsearch almacena documentos en formato JSON. Estos documentos se almacenan dentro de un índice y cada uno de esos documentos tiene una serie de campos o valores. Dependiendo del tipo de campo (numérico, texto, etc.), Elasticsearch lo almacena de una manera u otra \cite{elasticdata}. Esto hace que las búsquedas en Elastisearch sean tan eficientes y rápidas.
+
+\paragraph{}
+Para este proyecto en particular, se ha decidido que cada una de las \textit{IoT Things} que publiquen datos hacia AWS sean representadas por un índice en Elasticsearch. El nombre de este índice será \textit{nombre\_del\_campo\_de\_cultivo}-\textit{nombre\_de\_la\_IoT\_Thing}. De este modo las búsquedas serán más sencillas y cada índice contendrá los valores que proporcionen en cada momento los dispositivos. De este modo, si cada dispositivo es de un tipo diferente, no habrá una mezcla de campos en los documentos de cada índice, y todos los documentos de un índice tendrán los mismos campos.
 \end{document}
