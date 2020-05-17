@@ -7,6 +7,7 @@
 \usepackage{subfiles} %% Proyecto multi archivo
 \usepackage[spanish,es-tabla]{babel} %% Idioma español
 \usepackage[utf8]{inputenc} %% Permitir entrada utf-8
+\usepackage{marvosym} %% Símbolo €
 \usepackage[margin=2cm]{geometry} %% Márgenes
 \usepackage{fancyhdr} %% Encabezados y pies de página
 \usepackage{titling} %% Portada
@@ -18,8 +19,7 @@
 \usepackage[export]{adjustbox}
 \usepackage{varwidth}
 
-\graphicspath{ {./imagenes/} }
-\addbibresource{references.bib} %% Importar bibliografía
+
 
 %%% Configuración del preamble %%%
 \input{preamble}
@@ -125,8 +125,32 @@
 
 %%% Presupuesto %%%
 \section{Presupuesto}
-%% AQUI METER QUE EL PRESUPUESTO ES 0 PORQUE SE USA LA CAPA GRATUITA DE AWS
-%% AQUI METER LO QUE COSTARÍA ESTE SISTEMA 24/7 AL MES SIN EL FREE TIER
+\subfile{sections/6-presupuesto/610-presupuesto.tex}
+
+% 744 * 60 = 44640 minutos por mes
+
+% 1 petición cada 5 segundos = 60/5= 12 peticiones por minuto
+% 12 peticiones * 60 = 720 peticiones por hora
+% 720 peticiones por hora * 744 horas = 535680 peticiones por mes
+
+% cada ejecución son 0.5 segundos = 267840 GB-segundos
+
+% Lambda:
+% Provisioned Capacity = \$0.000004646 * 267840 GB-segundos = \$1.24 al mes
+% Peticiones = \$0.20 * 535680/1M = \$0.107136 al mes
+% Duration = \$0.0000108407 * 267840 GB-segundos = \$2.9036 al mes
+% TOTAL: 4 * (\$1.24 + \$0.107136 + \$2.9036) = \$17 al mes
+
+
+% IoT:
+% Conectividad: \$0.08 * 44640/1M = \$0.035712 al mes
+% Mensajes: \$1 *  535680/1M = \$0.53568 al mes
+% Reglas: \$0.15 * 535680/1M = \$0.080352 al mes
+% TOTAL: 4 * (\$0.035712 + \$0.53568 + \$0.080352) = \$2.61 al mes
+
+
+% EC2:
+% \$0.0126 * 744horas = \$9.37 al mes
 
 %%% Conclusiones %%%
 \section{Conclusiones}
