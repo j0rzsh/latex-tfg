@@ -115,7 +115,15 @@
 \subfile{sections/4-solucion-propuesta/430-despliegue.tex}
 
 %%% Resultados %%%
-\section{Resultados}
+\section{Pruebas realizadas}
+\subfile{sections/5-resultados/510-pruebas.tex}
+\subsection{Tiempo de despliegue y destrucción de la infraestructura}
+\subfile{sections/5-resultados/511-prueba-despliegue.tex}
+\subsection{Comunicación hacia los dispositivos}
+\subfile{sections/5-resultados/512-prueba-comunicacion.tex}
+\subsection{Representación de los datos}
+\subfile{sections/5-resultados/513-prueba-representacion.tex}
+
 %% AQUI METER CAPTURITAS DEL GRAFANA Y EXPLICAR PORQUE USAR GRAFANA PARA MOSTRAR RESULTADOS.
 %% AQUI METER  EL TIEMPO QUE SE HA TARDADO EN DESPLEGAR (PONER QUE VARÍA DEPENDIENDO DE AWS PERO LO QUE SE TARDA DE NORMAL)
 %% HACER UN PYTHON DE EJEMPLO QUE SE SUSCRIBA A UN TOPIC, ESCRIBIRLE DESDE AWS PARA QUE SE VEA CONECTIVIDAD DE AWS AL DISPOSITIVO
@@ -127,35 +135,12 @@
 \section{Presupuesto}
 \subfile{sections/6-presupuesto/610-presupuesto.tex}
 
-% 744 * 60 = 44640 minutos por mes
-
-% 1 petición cada 5 segundos = 60/5= 12 peticiones por minuto
-% 12 peticiones * 60 = 720 peticiones por hora
-% 720 peticiones por hora * 744 horas = 535680 peticiones por mes
-
-% cada ejecución son 0.5 segundos = 267840 GB-segundos
-
-% Lambda:
-% Provisioned Capacity = \$0.000004646 * 267840 GB-segundos = \$1.24 al mes
-% Peticiones = \$0.20 * 535680/1M = \$0.107136 al mes
-% Duration = \$0.0000108407 * 267840 GB-segundos = \$2.9036 al mes
-% TOTAL: 4 * (\$1.24 + \$0.107136 + \$2.9036) = \$17 al mes
-
-
-% IoT:
-% Conectividad: \$0.08 * 44640/1M = \$0.035712 al mes
-% Mensajes: \$1 *  535680/1M = \$0.53568 al mes
-% Reglas: \$0.15 * 535680/1M = \$0.080352 al mes
-% TOTAL: 4 * (\$0.035712 + \$0.53568 + \$0.080352) = \$2.61 al mes
-
-
-% EC2:
-% \$0.0126 * 744horas = \$9.37 al mes
-
-%%% Conclusiones %%%
-\section{Conclusiones}
+%%% Conclusiones y trabajos futuros%%%
+\section{Conclusiones y trabajos futuros}
+\subfile{sections/7-conclusiones-trabajos-futuros/710-conclusiones-trabajos-futuros.tex}
 
 %%% Referencias %%%
+\newpage
 \setcounter{secnumdepth}{0}
 \section{Referencias}
 \printbibliography[heading=none]
