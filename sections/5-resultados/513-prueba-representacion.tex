@@ -12,5 +12,15 @@ Grafana se ejecutará en local, fuera del entorno del \textit{MVP} por dos motiv
 Para el \textit{MVP}, se van a generar cuatro \textit{dashboards} diferentes, uno para cada sensor y cada uno de ellos con diferentes visualizaciones de las métricas del mismo. Esta herramienta sería una de las que, en un escenario real, sería operada por el encargado del campo de cultivo. Es por tanto una herramienta cuya configuración debe orientarse al usuario y debe ser fácil de utilizar.
 
 \paragraph{}
-A continuación, se incluyen varias capturas de la interfaz de Grafana, configurada para recibir datos de Elasticsearch y representarlos en los diferentes \textit{dashboards}. En el capítulo de trabajos futuros, se detallarán posibles desarrollos a realizar utilizando esta herramienta.
+A continuación, se incluye una captura de la interfaz de Grafana, configurada para recibir datos de Elasticsearch y representarlos en los diferentes \textit{dashboards}. En el capítulo de trabajos futuros, se detallarán posibles desarrollos a realizar utilizando esta herramienta.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{pruebaRepresentacion1.png}
+    \caption{Interfaz de Grafana mostrando las métricas de uno de los sensores}
+    \label{fig:pruebaRepresentacion1}
+\end{figure}
+
+\paragraph{}
+La figura anterior no es más que un ejemplo de representación de las métricas de uno de los sensores IoT. Se ha configurado para mostrar los datos en tiempo real de las métricas uqe reportan los dispositivos hacia la nube. Se trata de un pequeño ejemplo de qué hacer con los datos una vez indexados en Elasticsearch.
 \end{document}
