@@ -5,24 +5,39 @@
 \paragraph{}
 Una vez terminado este proyecto de investigación y desarrollo, se han obtenido las siguientes conclusiones:
 \begin{enumerate}
-    \item El uso de Infraestructura como código para la implementación de sistemas en la nube facilita en gran medida su gestión y reutilización. Usar IaC no solo permite gestionar la infraestructura de manera más eficaz, sino que evita fallos humanos, permite desplegar y evolucionar infraestructura de la misma forma que el Software habitual y permite trabajar a varios equipos sobre la misma infraestructura sin problemas.
+    \item El uso de infraestructura como código para la implementación de sistemas en la nube facilita en gran medida su gestión y reutilización. Usar \textit{IaC} no solo permite gestionar la infraestructura de manera más eficaz, sino que evita fallos humanos, permite desplegar y evolucionar infraestructura de la misma forma que el Software habitual y permite trabajar a varios equipos sobre la misma infraestructura sin problemas.
+
     \item Es muy importante conocer los servicios que ofrece el proveedor de nube pública que se utilice, así como su modelo de facturación. Conocer bien estos servicios y cómo pueden dar respuesta a las diferentes necesidades hará que el sistema implementado no solo sea más eficiente sino también más económico.
+
     \item Es importante conocer cuándo un servicio gestionado merece la pena teniendo en cuenta el tiempo y/o dinero que habría que invertir en preparar un sistema que realice el mismo trabajo y lo que cuesta dicho servicio gestionado. Hay veces que es más interesante desarrollar el sistema y hay veces que es mejor utilizar el servicio gestionado.
+
     \item Utilizar la nube pública es la mejor manera de acceder a sistemas o servicios complejos de instalar (por ejemplo, Elasticsearch), de una manera sencilla y económica. Utilizando sistemas tradicionales y \textit{on-premises}, la inversión para poder utilizar un sistema de estas características es mucho mayor que desplegarlo en la nube un tiempo determinado y después destruirlo.
+
     \item Es necesario dedicar una gran cantidad de tiempo y esfuerzo a estudiar y entender cómo funciona el proveedor de nube pública para poder aprovechar al máximo lo que ofrece y poder ajustar el presupuesto al mínimo posible.
+
 \end{enumerate}
 
 \paragraph{}
 Asimismo, se han ido identificando posibles pasos futuros a seguir en una teórica continuación del desarrollo realizado hasta ahora en este proyecto:
 
 \begin{enumerate}
-    \item Probar el mismo sistema pero sin usar un simulador, es deicr, con dispositivos IoT reales como los mencionados en el capítulo 2.4 Hardware IoT.
+    \item Probar el mismo sistema pero sin usar un simulador, es decir, con dispositivos IoT reales como los mencionados en el apartado Hardware IoT.
+
+    \item Aumentar la cantidad de datos recogidos de los sensores. Se pueden añadir datos como luminosidad, químicos presentes en el suelo, etc. que permitan realizar actuaciones o acciones más específicas y concretas teniendo en cuenta estos nuevos datos y métricas.
+
     \item Aumentar el sistema aquí implementado añadiendo un segundo tipo de dispositivo IoT que sea un actuador. De esta manera, el sistema no solo dispondría de dispositivos de medida y monitorización, sino también de dispositivos que puedan alterar el entorno.
-    \item Al hilo de la idea anterior, sería necesario añadir al sistema un desrrollo de alertado sobre las métricas recogidas, que se comunique con los actuadores cuando se dispare una regla sobre una métrica concreta.
+
+    \item Al hilo de la idea anterior, sería necesario añadir al sistema un desrrollo de alertado, como el mencionado en la prueba con Grafana, sobre las métricas recogidas, que se comunique con los actuadores cuando se dispare una regla sobre una métrica concreta.
+
     \item Implementar Elasticsearch Curator \cite{elasticsearchcurator} en la base de datos. Se trata de una herramienta que permite eliminar los datos antiguos, a partir de los días que se establezcan. Esto hará que la base de datos no se llene con datos antiguos que no serán de utilidad para el sistema.
+
     \item Siguiendo con la idea anterior, en lugar de eliminar los datos angituos, se pueden guardar en un almacenamiento más barato, como S3, para posteriormente lanzar análisis sobre las métricas y poder sacar históricos de las mismas en las diferentes tierras de cultivo.
+
+    \item Investigar la posibilidad de desplegar el mismo sistema aquí expuesto en otros proveedores de \textit{Cloud} mencionados, como Microsoft Azure o GCP. Quizás en alguno de estos proveedores el sistema puede ser más económico, más eficiente, etc. Esta línea de investigación puede abrir las posibilidades a un despliegue \textit{Multi-Cloud}.
+
+    \item Investigar e identificar los parámetros que sería necesario modificar en el sistema para adecuarlo a un sistema productivo, como por ejemplo, la cantidad de almacenamiento de la que dispone Elasticsearch o el tipo de instancia elegido para ello.
 \end{enumerate}
 
 \paragraph{}
-Finalmente, se puede observar que las posibilidades de mejora son prácticamente infinitas y que un sistema de estas características puede estar en continuo desarrollo y evolución para ofrecer cada vez más servicios. La mejor opción sería implementarle en una tierra de cultivo real y tener una comunicación continua con el agricultor, escuchando así las necesidades que puedan ir surgiendo para poder aplicarlas al sistema. Es necesario intentar aprovechar al máximo las posibilidades que ofrece la nube pública y su capa gratuita, sea cual sea el proveedor, ya que permite realizar desarrollos a coste 0 que luego bien pueden implantarse en un entorno real. Actualmente, con la tecnología \textit{Cloud} e IoT en continuo crecimiento, es el mejor momento para sumergirse de lleno en las mismas y desarrollar ideas y pruebas que en el futuro pueden formar parte de un gran sistema.
+Finalmente, se puede observar que las posibilidades de mejora son prácticamente infinitas y que un sistema de estas características puede estar en continuo desarrollo y evolución para ofrecer cada vez más servicios a petición de los usuarios del mismo. La mejor opción sería implementar el sistema en una tierra de cultivo real y tener una comunicación continua con el agricultor, escuchando así las necesidades que puedan ir surgiendo para poder aplicarlas al sistema. Es necesario intentar aprovechar al máximo las posibilidades que ofrece la nube pública y su capa gratuita, sea cual sea el proveedor, ya que permite realizar desarrollos a coste 0 que luego pueden implantarse en un entorno real. Actualmente, con la tecnología \textit{Cloud} e IoT en continuo crecimiento, es el mejor momento para sumergirse de lleno en las mismas y desarrollar ideas y pruebas que en el futuro pueden formar parte de un gran sistema, y así poder mejorar de forma continua los resultados y las operaciones en la agricultura.
 \end{document}
