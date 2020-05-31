@@ -6,7 +6,7 @@
 Toda la información sobre Terraform presentada en este apartado tiene como fuente la página oficial del producto \cite{terraform}.
 
 \paragraph{}
-Terraform es una herramienta codificada en el lenguaje Golang que sirve para crear, desplegar y versionar infraestructura. Utilizando \textit{IaC} es posible mantener una infraestructura mediante Terraform. Esta herramienta pertenece al fabricante Hashicorp y es una herramienta Open Source, gratuita y agnóstica del proveedor \textit{cloud} a utilizar.
+Terraform es una herramienta codificada en el lenguaje Golang que sirve para crear, desplegar y versionar infraestructura. Utilizando \textit{IaC} es posible mantener una infraestructura mediante Terraform. Esta herramienta pertenece al fabricante Hashicorp y es una herramienta \textit{Open Source}, gratuita y agnóstica del proveedor \textit{Cloud} a utilizar.
 
 \paragraph{}
 Para AWS, Terraform no es más que un agente de despliegue representado como un IAM User destinado al acceso programático. Terraform es declarativo, lo que significa que la infraestructura que se despliegue será exactamente la que se indique en el código. Esto supone que, si en el código se crean 3 recursos del mismo servicio, siempre habrá 3 recursos, independientemente de las veces que se ejecute.
@@ -18,10 +18,11 @@ Terraform por sí mismo no puede crear recursos para AWS. Necesita de un \textit
 Terraform dispone de varios comandos básicos:
 
 \begin{itemize}
-    \item \textbf{init}: mediante la ejecución de este comando, Terraform inicializa y descarga los recursos que necesite para la ejecución del código. En este paso Terraform descarga el provider (en este caso de AWS) y los recursos ubicados en las fuentes que se indiquen mediante el código (como, por ejemplo, el código de algún repositorio).
+    \item \textbf{init}: mediante la ejecución de este comando, Terraform inicializa y descarga los recursos que necesite para la ejecución del código. En este paso Terraform descarga el \textit{provider} (en este caso de AWS) y los recursos ubicados en las fuentes que se indiquen mediante el código (como, por ejemplo, el código de algún repositorio).
+
     \item \textbf{plan}: mediante este comando se ejecuta un plan que muestra las acciones que se van a realizar sobre la infraestructura.
 
-    \item \textbf{apply}: este comando sirve para aplicar los cambios a la infraestructura. Al ejecutarle, Terraform realizará un plan y confirmará al usuario si desea aplicar los cambios indicados.
+    \item \textbf{apply}: este comando sirve para aplicar los cambios a la infraestructura. Al ejecutarle, Terraform realizará un plan y pedriá confirmación al usuario de si desea o no aplicar los cambios indicados en el plan.
 
     \item \textbf{destroy}: mediante este comando se puede destruir la infraestructura que figure en el archivo de estado de Terraform.
 \end{itemize}

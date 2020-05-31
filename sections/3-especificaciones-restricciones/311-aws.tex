@@ -7,11 +7,11 @@ Para describir todos los servicios de Amazon Web Services, la documentación de 
 \begin{itemize}
       \item \textbf{Identity and Access Management (IAM)}
             \par
-            Bajo este servicio AWS ofrece la posibilidad de crear usuarios, roles y políticas. Estos usuarios son propios de AWS y sirven para modificar la infraestructura que se despliega en AWS pero no son usuarios de aplicación.
+            Bajo este servicio AWS ofrece la posibilidad de crear usuarios, roles y políticas. Estos usuarios son propios de AWS y sirven para modificar la infraestructura que se despliega en AWS pero no son usuarios del nivel de aplicación.
             \begin{itemize}
                   \item \textbf{IAM Users, IAM Policies, IAM Roles}
                         \par
-                        Los IAM Users que se pueden crear pueden ser de dos tipos: usuarios normales de consola de AWS o usuario para acceso programático. Normalmente, el primer tipo se crea para personas que vayan a acceder a la consola web de AWS y el segundo tipo se utiliza para accesos mediante la CLI (Command Line Interface) de AWS o para agentes de despliegue como puede ser Terraform, el cual se explica más adelante en este capítulo.
+                        Los IAM Users que se pueden crear pueden ser de dos tipos: usuarios normales de consola de AWS o usuario para acceso programático. Normalmente, el primer tipo se crea para personas que vayan a acceder a la consola web de AWS y el segundo tipo se utiliza para accesos mediante la CLI (Command Line Interface) de AWS o para agentes de despliegue como puede ser Terraform, el cual se explica más adelante en este apartado.
                         \par
                         Las IAM Policies sirven para administrar los diferentes tipos de permisos que se pueden asignar a un usuario, mientras que los IAM Role se utilizan para conceder permisos a servicios de AWS sobre otros servicios de AWS, o para estrategias multi cuenta en las que se conceden permisos entre cuentas. Los IAM Roles tienen asignadas IAM Policies.
                         \par
@@ -27,7 +27,7 @@ Para describir todos los servicios de Amazon Web Services, la documentación de 
                         Las VPC conforman una red de tamaño máximo /16, la cual se puede dividir en Subnets en las cuales se podrán colocar los diferentes recursos que se quieran desplegar.
                   \item \textbf{Security Groups y Network Access Controls Lists (NACLs)}
                         \par
-                        Conforman los Firewalls de AWS. Los Security Groups se asocian a instancias u otros servicios y contienen una política restrictiva por defecto. Deniegan el tráfico a todo lo que no esté contemplado en sus reglas. Por el contrario, los NACLs poseen una política permisiva por defecto y mediante sus reglas se puede denegar o permitir el tráfico de manera explícita a conveniencia.
+                        Conforman los cortafuegos de AWS. Los Security Groups se asocian a instancias u otros servicios y contienen una política restrictiva por defecto. Deniegan el tráfico a todo lo que no esté contemplado en sus reglas. Por el contrario, los NACLs poseen una política permisiva por defecto y mediante sus reglas se puede denegar o permitir el tráfico de manera explícita a conveniencia.
                   \item \textbf{Route Tables }
                         \par
                         Las Route Tables son tablas de ruta normales sin ninguna peculiaridad específica. Por defecto las VPC contienen las rutas para poder intercomunicar los recursos desplegados en ellas.
@@ -35,7 +35,7 @@ Para describir todos los servicios de Amazon Web Services, la documentación de 
                         \par
                         El Internet Gateway actúa como un punto de acceso que comunica las VPC con Internet. Sin desplegar este elemento, no existirá la conexión con Internet desde una VPC.
 
-                        El NAT Gateway sirve para comunicar subredes privadas con las subredes públicas, entre otros usos. Son el elemento que permite dar acceso a Internet a subredes privadas.
+                        El NAT Gateway sirve para comunicar subredes privadas con las subredes públicas y para exponer servicios que se encuentren en subredes privadas, entre otros usos. Son el elemento que permite dar acceso a Internet a subredes privadas.
             \end{itemize}
 
       \item \textbf{Storage}
@@ -50,14 +50,14 @@ Para describir todos los servicios de Amazon Web Services, la documentación de 
                         Este servicio ofrece almacenamiento a nivel de bloques utilizado para ser los volúmenes que tienen las instancias. Permite de manera sencilla hacer \textit{snapshots} y restaurarlos, y es el servicio que ofrece almacenamiento persistente para las instancias. Sino se selecciona un volumen EBS al lanzar una instancia, los datos que almacene se perderán al apagar la instancia.
                   \item \textbf{Bases de datos}
                         \par
-                        AWS ofrece una gran cantidad de bases de datos, tanto relacionales como no relacionales, así como servicios propios de AWS como Amazon Aurora.
+                        AWS ofrece una gran cantidad de bases de datos, tanto relacionales como no relacionales, así como servicios propios de AWS como Amazon Aurora. Ejemplos de estas bases de datos son RDS, Redshift, DynamoDB, etc.
             \end{itemize}
 
       \item \textbf{Computing}
             \begin{itemize}
                   \item \textbf{Elastic Compute Cloud (EC2)}
                         \par
-                        Es el servicio de computación de AWS que permite lanzar instancias con las distribuciones de Windows o Linux que se quiera. No solo engloba las instancias, sino que el servicio EC2 agrupa también otro tipo de recursos como los anteriormente mencionados Security Groups, balanceadores de carga, etc.
+                        Es el servicio de computación de AWS que permite lanzar instancias con las distribuciones de Windows o Linux que se requiera. No solo engloba las instancias, sino que el servicio EC2 agrupa también otro tipo de recursos como los anteriormente mencionados Security Groups, balanceadores de carga, etc.
             \end{itemize}
 
       \item \textbf{IoT Services}
