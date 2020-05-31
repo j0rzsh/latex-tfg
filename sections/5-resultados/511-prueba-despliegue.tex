@@ -3,7 +3,7 @@
 \begin{document}
 
 \paragraph{}
-La primera de estas pruebas ha consistido en utilizar el comando time \cite{timelinuxcom} para poder medir el tiempo que tarda el \textit{MVP} en desplegarse y comenzar a funcionar. Se ha ejecutado mediante el comando time el script launch\_tfg.sh tres veces, así como sobre el script destroy\_tfg.sh otras tres veces. De esta forma se puede comprobar cuánto tiempo tarda, de media, en desplegarse y cuánto en destruirse. Los resultados de estas pruebas han sido los siguientes:
+La primera de estas pruebas ha consistido en utilizar el comando time \cite{timelinuxcom} para poder medir el tiempo que tarda el \textit{MVP} en desplegarse y comenzar a funcionar. Se ha ejecutado mediante el comando time el script launch\_tfg.sh tres veces, así como sobre el script destroy\_tfg.sh otras tres veces. De esta forma se puede comprobar cuánto tiempo tarda normalmente en desplegarse y cuánto en destruirse. Los resultados de estas pruebas han sido los siguientes:
 
 \begin{figure}[H]
     \centering
@@ -64,7 +64,7 @@ Por lo tanto, tras esta prueba se pueden sacar las siguientes conclusiones:
 
 \begin{enumerate}
     \item Desplegar un sistema en la nube (AWS en este caso) utilizando infraestructura como código es un proceso muy ágil. Se ha conseguido desplegar un sistema complejo, con una base de datos como es Elasticsearch en menos de 15 minutos.
-    \item Destruir el sistema creado es incluso más rápido. Además, utilizando \textit{IaC}, no se corre el riesgo de olvidar algún recurso sin destruir que consuma presupuesto de manera indeseada.
-    \item En este caso, con AWS y Terraform, los tiempos tanto de despliegue como de destrucción varían muy poco, por lo que se pueden asegurar rangos de tiempos para ambos procesos eficazmente.
+    \item Destruir el sistema creado es incluso más rápido. Además, utilizando \textit{IaC}, no se corre el riesgo de olvidar algún recurso sin destruir que genere gasto de manera indeseada.
+    \item En este caso, con AWS y Terraform, los tiempos tanto de despliegue como de destrucción varían muy poco, por lo que se pueden asegurar rangos de tiempos para ambos procesos.
 \end{enumerate}
 \end{document}
