@@ -3,27 +3,27 @@
 \begin{document}
 
 \paragraph{}
-Con el fin de automatizar todo lo posible el despliegue de la solución, se ha decidido crear dos scripts que sirvan de ayuda para ello. Estos scripts son:
+Con el fin de automatizar todo lo posible el despliegue de la solución, se ha decidido crear varios scripts que sirvan de ayuda para ello. Estos scripts son:
 
 \begin{enumerate}
     \item launch\_tfg.sh: este script está escrito en Bash y se encarga de automatizar los comandos necesarios para el despliegue. Esto es:
           \begin{itemize}
-              \item Crea un workspace de terraform y ejecuta el comando apply de terraform.
-              \item Ejecuta el script número 2 (save\_outputs\_terraform.py) para guardar los outputs de terraform y poder usarlos tanto en el simulador como en el resto de herramientas que sean necesarias.
+              \item Crea un \textit{workspace} de Terraform y ejecuta el comando \textit{terraform apply -auto-approve} que omite la confirmación del usuario antes de aplicar los cambios.
+              \item Ejecuta el script que se explica en el siguiente punto (save\_outputs\_terraform.py) para guardar las variables de salida de Terraform y poder usarlas tanto en el simulador como en el resto de herramientas que sean necesarias.
               \item Recoge la IP de la instancia EC2 que se va a utilizar para ejecutar el simulador.
-              \item Copia mediante scp el código del simulador en la instancia. Ejecuta mediante ssh el comando docker build y el comando docker run para ejecutar el simulador.
+              \item Copia mediante scp el código del simulador en la instancia. Ejecuta mediante ssh el comando \textit{docker build} y el comando \textit{docker run} para ejecutar el simulador.
           \end{itemize}
 
-    \item save\_outputs\_terraform.py: este script recoge la salida de terraform una vez desplegada la infraestructura. Guarda en una carpeta con nombre config los siguientes datos:
+    \item save\_outputs\_terraform.py: este script recoge la salida de Terraform una vez desplegada la infraestructura. Guarda en una carpeta con nombre config los siguientes datos:
           \begin{itemize}
               \item Certificados de los dispositivos IoT. Estos certificados se almacenan en el \textit{tfstate} mencionado anteriormente. Dicho \textit{tfstate} se encuentra cifrado dentro del Bucket S3 por lo que contiene la seguridad necesaria para el almacenaje de dichos certificados. Tal y como se describe en \cite{terraformsensitive}, se trata el \textit{tfstate} como datos sensibles y por tanto se controla su acceso mediante políticas de IAM y cifrado desde el lado del servidor.
 
-              \item Punto de acceso del dominio de Elasticsearch: se guarda para luego poder pasárselo como parámetro al script anteriormente comentado (init\_es\_indices.py).
+              \item Punto de acceso del dominio de Elasticsearch: se guarda para poder acceder a la base de datos.
 
               \item Punto de acceso IoT de AWS: se guarda para poder pasárselo como parámetro al simulador.
           \end{itemize}
 
-    \item destroy\_tfg.sh: este script simplemente ejecuta el comando destroy de terraform para destruir toda la infraestructura creada.
+    \item destroy\_tfg.sh: este script simplemente ejecuta el comando \textit{terraform destroy -auto-approve} para destruir toda la infraestructura creada sin tener que pedir confirmación al usuario.
 \end{enumerate}
 
 \end{document}

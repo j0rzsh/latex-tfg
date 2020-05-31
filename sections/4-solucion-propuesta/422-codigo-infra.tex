@@ -3,7 +3,7 @@
 \begin{document}
 
 \paragraph{}
-El siguiente paso es configurar con dichas credenciales el acceso a la consola de AWS. En este caso, se ha instalado la CLI de AWS \cite{awscli} y se han configurado como acceso las credenciales del usuario terraform en el perfil [personal] mediante el comando \textit{aws configure}:
+El siguiente paso es configurar con dichas credenciales el acceso a la consola de AWS. En este caso, se ha instalado la CLI de AWS \cite{awscli} y se van a utilizar las credenciales por defecto de AWS pertenecientes en este caso al usuario terraform y configuradas mediante el comando \textit{aws configure} en la máquina local desde la que se va a desplegar la infraestructura (censurados datos sensibles):
 
 \begin{figure}[H]
     \centering
@@ -16,17 +16,17 @@ El siguiente paso es configurar con dichas credenciales el acceso a la consola d
 Una vez realizada toda esta configuración, se ha creado un repositorio en Github que albergará el código utilizado para la realización de este proyecto. Dicho repositorio será privado y el código que contiene será incluido como anexo en este proyecto.
 
 \paragraph{}
-A continuación, se van a explicar partes del código que es interesante mencionar:
+A continuación, se van a explicar partes del código que son interesantes de mencionar:
 
 \begin{enumerate}
     \item La configuración del \textit{provider}, como se ha mencionado anteriormente, será AWS, se encuentra en las líneas de código que se muestran en la siguiente figura, dentro del archivo que tiene como nombre en el repositorio 00\_main.tf:
           \begin{figure}[H]
               \centering
-              \includegraphics[width=0.7\columnwidth]{figura7.png}
+              \includegraphics[width=0.4\columnwidth]{figura7.png}
               \caption{Parte del código del fichero 00\_main.tf del repositorio del proyecto}
               \label{fig:figura7}
           \end{figure}
-          Como puede observarse en la Figura 7, el \textit{provider} para aws se ha configurado estableciendo la región (eu-west-1) que corresponde a la región de AWS de Irlanda. También se indica el fichero donde se albergan las credenciales de AWS. Dicho fichero es el correspondiente a la Figura 6 y contiene las credenciales del usuario terraform creado anteriormente. La variable \textit{profile} indica que el perfil de dicho archivo de credenciales que se va a utilizar es el llamado personal (el que se puede observar en la Figura 6 como [personal]).
+          Como puede observarse en la Figura 7, el \textit{provider} para AWS se ha configurado estableciendo la región (eu-west-1) que corresponde a la región de AWS de Irlanda. No es necesario aportar más configuración ya que el fichero de credenciales es el utilizado por defecto, al igual que el perfil de dicho archivo de credenciales.
 
     \item La siguiente parte del código que es interesante mencionar es la referente al \textit{backend}. Esta configuración se muestra en la siguiente imagen:
           \begin{figure}[H]
@@ -35,11 +35,11 @@ A continuación, se van a explicar partes del código que es interesante mencion
               \caption{Configuración del backend en terraform }
               \label{fig:figura8}
           \end{figure}
-          Esta configuración que se puede observar en la Figura 8 es referente al \textit{tfstate} mencionado en el capítulo en el cual se explica Terraform. Por defecto, el \textit{tfstate} se guarda de manera local en el equipo desde el cual se lance la ejecución del comando \textit{terraform apply}. Sin embargo, para este proyecto se ha decidido utilizar un backend remoto que permita guardar dicho \textit{tfstate} en un Bucket S3. Esto permite realizar despliegues desde diferentes equipos recuperando dicho \textit{tfstate}. En este caso se ha decidido guardar encriptado por razones de seguridad y se ha utilizado un \textit{workspace} el cual permite tener diferentes \textit{tfstate} para diferentes entornos de trabajo.
+          Esta configuración que se puede observar en la Figura 8 es referente al \textit{tfstate} mencionado en el apartado en el cual se explica Terraform. Por defecto, el \textit{tfstate} se guarda de manera local en el equipo desde el cual se lance la ejecución del comando \textit{terraform apply}. Sin embargo, para este proyecto se ha decidido utilizar un \textit{backend} remoto que permita guardar dicho \textit{tfstate} en un Bucket S3. Esto permite realizar despliegues desde diferentes equipos recuperando dicho \textit{tfstate}. En este caso se ha decidido guardar encriptado por razones de seguridad y se ha utilizado un \textit{workspace} el cual permite tener diferentes \textit{tfstate} para diferentes entornos de trabajo representados por el mismo código de Terraform.
 
     \item Código de la infraestructura: el resto del código representa la infraestructura y está organizado en:
           \begin{itemize}
-              \item Archivos de configuración y variables fijas: 00\_main.tf y 01\_locals.tf: estos archivos configuran el entorno de terraform y contienen variables que son fijas para todo el proyecto.
+              \item Archivos de configuración y variables fijas: 00\_main.tf y 01\_locals.tf: estos archivos configuran el entorno de Terraform y contienen variables que son fijas para todo el proyecto.
 
               \item Archivos de infraestructura del sistema: 02\_elasticsearch.tf y 03\_lambda.tf: estos archivos contienen los recursos de infraestructura que son comunes a todo el sistema. Como bien indican los nombres de dichos archivos, los recursos son Elasticsearch Service y AWS Lambda. Las funciones lambda se guardan en una carpeta separada llamada lambdas y están escritas en Python.
 
@@ -47,7 +47,7 @@ A continuación, se van a explicar partes del código que es interesante mencion
 
               \item Archivos de variables y salida del sistema: 99\_variables.tf y 99\_outputs.tf: contienen las variables generales del sistema y la salida pertinente del mismo.
 
-              \item Archivo de variables de entorno: aws-iot-tfg-dev.tfvars: contiene variables de un entorno. Esto está pensado teniendo en cuenta que el mismo código se usará en distintos entornos típicos (desarrollo, preproducción y producción). Esto facilita desarrollos en el sistema sin perder tiempo de servicio del mismo. Este archivo se le pasa a terraform antes de realizar un apply, mediante el uso de la opción -var-file. Cómo se lanza terraform se explicará en el apartado Despliegue de la solución.
+              \item Archivo de variables de entorno: aws-iot-tfg-dev.tfvars: contiene variables de un entorno. Esto está pensado teniendo en cuenta que el mismo código se usará en distintos entornos típicos (desarrollo, preproducción y producción). Esto facilita desarrollos en el sistema sin perder tiempo de servicio del mismo. Este archivo se le pasa a terraform antes de realizar un apply, mediante el uso de la opción -var-file. Cómo se lanza Terraform se explicará en el apartado despliegue de la solución.
           \end{itemize}
 
 \end{enumerate}
