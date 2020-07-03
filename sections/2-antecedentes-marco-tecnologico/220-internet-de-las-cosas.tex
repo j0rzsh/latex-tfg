@@ -5,7 +5,7 @@
 Internet de las Cosas es un paradigma que se basa en la interconexión de dispositivos u objetos de uso cotidiano mediante Internet \cite{iotwiki}. Esto permite interactuar con dichos objetos de una manera completamente distinta para la que fueron pensados en un primer momento, permitiendo aportar valor añadido a la función de estos objetos. Este paradigma permite el control remoto, la monitorización, la automatización de tareas, la identificación, etc. de diferentes aspectos relacionados con estos objetos.
 
 \paragraph{}
-Internet de las Cosas es un concepto extremadamente amplio, por lo tanto, vamos a hacer foco en cómo va a ser una parte imprescindible para la solución que se quiere plantear, y cómo se utiliza actualmente para aplicaciones similares.
+Internet de las Cosas es un concepto extremadamente amplio, por lo tanto, se va a hacer foco en cómo va a ser una parte imprescindible para la solución que se quiere plantear, y cómo se utiliza actualmente para aplicaciones similares.
 
 \paragraph{}
 En resumen, este paradigma encaja a la perfección en el caso de uso que aplica: monitorización de campos de cultivo. Mediante dispositivos o sensores conectados a través de Internet, va a ser posible implementar dicha monitorización de manera remota, lo que va a mejorar la eficiencia de la agricultura al permitir cubrir amplios rangos de tierras de cultivo sin tener que emplear tiempo y recursos en el desplazamiento físico del operario o agricultor hacia dichas tierras.
@@ -14,23 +14,23 @@ En resumen, este paradigma encaja a la perfección en el caso de uso que aplica:
 Internet de las Cosas es la pieza central del puzzle que representa el sistema completo dedicado a la agricultura de precisión. Es el medio por el cual se pasa del mundo analógico de los datos de una tierra a la parte digital que almacena y procesa esos datos.
 
 \paragraph{}
-Para este trabajo es necesario centrarse en aquellos dispositivos pertenecientes al paradigma de Internet de las Cosas que han sido concebidos para consumir un mínimo de recursos y energía, ya que el Hardware desplegado deberá residir en los propios campos de cultivo, con poco o ningún acceso a fuentes de energía externa. Este problema puede subdividirse en tres escenarios diferentes:
+Para este trabajo es necesario centrarse en aquellos dispositivos pertenecientes al paradigma de Internet de las Cosas que han sido concebidos para consumir un mínimo de recursos y energía, ya que el hardware desplegado deberá residir en los propios campos de cultivo, con poco o ningún acceso a fuentes de energía externa. Este problema puede subdividirse en tres escenarios diferentes:
 
 \begin{enumerate}
     \item Los dispositivos tendrán acceso a fuentes de energía: este escenario es prácticamente imposible que se presente en un campo de cultivo abierto. Sí podría ser una opción en un campo de cultivo cerrado, como un invernadero.
 
-    \item Los dispositivos no tendrán acceso a fuentes de energía pero podremos tener un \textit{Gateway} central cercano que sí tiene acceso a fuentes de energía: en este escenario los dispositivos no van a enviar información directamente a Internet, sino que la enviarán a un dispositivo común a todos ellos que es el que se encargará de retransmitir esa información hacia Internet. Este escenario sería ideal para un campo de cultivo abierto, ya que permitiría que los dispositivos sensores y actuadores ahorrasen la energía necesaria para poder enviar a Internet, pudiendo enviar la información a un dispositivo cercano, a un rango de distancia menor. Este escenario posibilita el uso de protocolos pensados únicamente para este caso de uso como 6LowPan \cite{6lowpan} o Zigbee \cite{zigbee}.
+    \item Los dispositivos no tendrán acceso a fuentes de energía pero se podrá tener un \textit{Gateway} central cercano que sí tiene acceso a fuentes de energía: en este escenario los dispositivos no van a enviar información directamente a Internet, sino que la enviarán a un dispositivo común a todos ellos que es el que se encargará de retransmitir esa información hacia Internet. Este escenario sería ideal para un campo de cultivo abierto, ya que permitiría que los dispositivos sensores y actuadores ahorrasen la energía necesaria para poder enviar a Internet, pudiendo enviar la información a un dispositivo cercano, a un rango de distancia menor. Este escenario posibilita el uso de protocolos pensados únicamente para este caso de uso como 6LowPan \cite{6lowpan} o Zigbee \cite{zigbee}.
 
-    \item Los dispositivos no tendrán acceso a fuentes de energía y no dispondrán de un \textit{Gateway} cercano al que enviarle información en un rango de distancia corto: este escenario es el más complejo en cuanto a la gestión de energía de los dispositivos. Estos deberán enviar directamente a Internet la información recogida o utilizar un protocolo de mayor alcance para transmitir hacia el \textit{Gateway}, como LoRa \cite{lora}, lo que supondrá un gasto extra de energía.
+    \item Los dispositivos no tendrán acceso a fuentes de energía y no dispondrán de un \textit{Gateway} cercano al que enviarle información en un rango de distancia corto: este escenario es el más complejo en cuanto a la gestión de energía de los dispositivos. Estos deberán enviar directamente a Internet la información recogida o utilizar un protocolo de mayor alcance para transmitir hacia el \textit{Gateway}, como LoRa \cite{lora}, lo que supondrá un gasto extra de energía. En esta clase de escenario es importante conocer tecnologías diseñadas para trabajar en estas condiciones. Además de LoRa, mencionada anteriormente, NB-IoT \cite{nbiot} y LTE-M \cite{ltem} conforman dos tecnologías de comunicación que serán de gran utilidad en la parte hardware y de comunicaciones de un sistema planteado dentro de este escenario.
 \end{enumerate}
 
 \paragraph{}
-No es objetivo de este trabajo dar una solución a la problemática del Hardware para este escenario, pero es necesario conocer las opciones y alternativas que existen actualmente para ello. Esta parte de la investigación soporta la viabilidad de este trabajo y de líneas de investigación futuras posteriores al desarrollo de este caso de uso.
+No es objetivo de este trabajo dar una solución a la problemática del hardware para este escenario, pero es necesario conocer las opciones y alternativas que existen actualmente para ello. Esta parte de la investigación soporta la viabilidad de este trabajo y de líneas de investigación futuras posteriores al desarrollo de este caso de uso.
 
 \paragraph{}
 Sin embargo, sí es objetivo de este trabajo proponer una solución compatible con cualquiera de los escenarios aquí presentados. El objetivo es proponer una solución altamente compatible para cualquier tipo de escenario desplegado, para así poder adaptarse a las diferentes problemáticas específicas de cada campo de cultivo en el que pueda implantarse esta solución.
 
 \paragraph{}
-Más adelante en este mismo apartado, se estudiarán algunas opciones o alternativas para los elementos del sistema aquí mencionados: el Hardware \textit{IoT} y los protocolos de comunicación necesarios.
+Más adelante en este mismo apartado, se estudiarán algunas opciones o alternativas para los elementos del sistema aquí mencionados: el hardware de dispositivos conectados \textit{IoT} y los protocolos de comunicación necesarios.
 
 \end{document}

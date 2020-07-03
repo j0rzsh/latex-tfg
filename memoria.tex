@@ -18,7 +18,7 @@
 \usepackage{microtype} %% Justificar cuando hay carácteres especiales
 \usepackage[export]{adjustbox}
 \usepackage{varwidth}
-
+\usepackage{pdfpages} %% Insertar portada
 
 
 %%% Configuración del preamble %%%
@@ -28,13 +28,18 @@
 \begin{document}
 
 %%% Portada %%%
-\subfile{sections/0-prev/010-portada.tex}
+\includepdf[pages=-]{portada/portada.pdf}
 \thispagestyle{empty}
 \newpage
 
-%%% Resumen y Abstract %%%
-\section*{Resumen y Abstract}
-\subfile{sections/0-prev/020-resumen-y-abstract.tex}
+%%% Resumen %%%
+\section*{Resumen}
+\subfile{sections/0-prev/020-resumen.tex}
+\newpage
+
+%%% Abstract %%%
+\section*{Abstract}
+\subfile{sections/0-prev/020-abstract.tex}
 \newpage
 
 %%% Índice de Contenidos %%%
@@ -52,7 +57,7 @@
 \newpage
 
 %%% Antecedentes o Marco Tecnológico %%%
-\section{Antecedentes o Marco Tecnológico}
+\section{Antecedentes y Marco Tecnológico}
 \subfile{sections/2-antecedentes-marco-tecnologico/200-antecedentes-marco-tecnologico.tex}
 
 \subsection{Agricutura de Precisión}
@@ -64,14 +69,17 @@
 \subsection{Computación en la Nube}
 \subfile{sections/2-antecedentes-marco-tecnologico/230-computacion-nube.tex}
 
-\subsection{Hardware IoT}
+\subsection{Hardware de dispositivos conectados a IoT}
 \subfile{sections/2-antecedentes-marco-tecnologico/240-hardware-iot.tex}
 
-\subsection{Protocolos de Comunicación para IoT}
+\subsection{Protocolos de comunicación de dispositivos conectados a IoT}
 \subfile{sections/2-antecedentes-marco-tecnologico/250-protocolos-topologias.tex}
 
 \subsection{Ejemplos de Agricultura de Precisión}
 \subfile{sections/2-antecedentes-marco-tecnologico/260-ejemplos-agricultura.tex}
+
+\subsection{Infraestructura como Código}
+\subfile{sections/2-antecedentes-marco-tecnologico/270-iac.tex}
 
 %%% Especificaciones y restricciones de diseño %%%
 \section{Especificaciones y restricciones de diseño}

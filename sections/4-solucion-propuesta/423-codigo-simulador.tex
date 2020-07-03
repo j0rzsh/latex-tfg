@@ -3,7 +3,9 @@
 \begin{document}
 
 \paragraph{}
-Se ha codificado un simulador para evitar tener que recurrir a dispositivos físicos que no solo aumentarían el presupuesto de este proyecto, sino que implicaría tener que adquirir dichos dispositivos y el tiempo que ello supondría.
+Se ha codificado un simulador para evitar tener que recurrir a dispositivos físicos que no solo aumentarían el presupuesto del \textit{MVP} que se ha desarrollado en este proyecto, sino que implicaría tener que adquirir dichos dispositivos, configurarlos y testearlos antes de incluirlos en el \textit{MVP}. El \textit{MVP} desarrollado tiene como objetivo demostrar la viabilidad de los elementos \textit{Punto de acceso}, \textit{Preprocesado} y \textit{Almacenamiento} de la Figura 1.
+
+
 
 \paragraph{}
 Este simulador se basa en un programa escrito en Python que implementa un cliente MQTT. Para ejecutarlo se ha decidido implementar en un contenedor Docker \cite{docker}. Docker es una tecnología de contenedores que permite virtualizar parte de un sistema operativo con objeto de ser más liviano que una máquina virtual pero que permita aislar por completo el entorno de ejecución de una aplicación. Esta tecnología no es objetivo de estudio en este proyecto por lo que no se va a profundizar en ella, sin embargo, se ha decidido ejecutar el simulador a través de ella ya que permite una portabilidad suficiente para poder ejecutarla en cualquier sitio que tenga instalado el motor Docker.

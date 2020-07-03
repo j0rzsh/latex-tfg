@@ -3,7 +3,7 @@
 \begin{document}
 
 \paragraph{}
-Para describir todos los servicios de Amazon Web Services, la documentación de referencia ha sido la propia documentación oficial de AWS. \cite{awsdoc}
+Para describir todos los servicios de AWS, la documentación de referencia ha sido la propia documentación oficial de AWS. \cite{awsdoc}
 \begin{itemize}
       \item \textbf{Identity and Access Management (IAM)}
             \par
@@ -24,7 +24,9 @@ Para describir todos los servicios de Amazon Web Services, la documentación de 
             \begin{itemize}
                   \item \textbf{Virtual Private Cloud (VPC) y Subnets}
                         \par
-                        Las VPC conforman una red de tamaño máximo /16, la cual se puede dividir en Subnets en las cuales se podrán colocar los diferentes recursos que se quieran desplegar.
+                        Las VPC conforman una red de tamaño máximo /16. Por lo tanto habrá un máximo 65534 posibles direcciones. Como ejemplo, si la red es 10.101.0.0/16, la IP más baja será 10.101.0.1 y la más alta 10.101.255.254, siendo 10.101.0.0 la dirección de la red y 10.101.255.255 la dirección de \textit{broadcast}. Como puede observarse, al establecer la máscara de red en /16 los dos primeros dígitos de la dirección quedarán fijos y los dos últimos serán los que varíen generando las diferentes direcciones IP.
+
+                        Estas VPC pueden dividir en subredes (Subnets) en las cuales se podrán colocar los diferentes recursos que se quieran desplegar.
                   \item \textbf{Security Groups y Network Access Controls Lists (NACLs)}
                         \par
                         Conforman los cortafuegos de AWS. Los Security Groups se asocian a instancias u otros servicios y contienen una política restrictiva por defecto. Deniegan el tráfico a todo lo que no esté contemplado en sus reglas. Por el contrario, los NACLs poseen una política permisiva por defecto y mediante sus reglas se puede denegar o permitir el tráfico de manera explícita a conveniencia.
@@ -58,6 +60,9 @@ Para describir todos los servicios de Amazon Web Services, la documentación de 
                   \item \textbf{Elastic Compute Cloud (EC2)}
                         \par
                         Es el servicio de computación de AWS que permite lanzar instancias con las distribuciones de Windows o Linux que se requiera. No solo engloba las instancias, sino que el servicio EC2 agrupa también otro tipo de recursos como los anteriormente mencionados Security Groups, balanceadores de carga, etc.
+                  \item \textbf{Lambda}
+                        Este servicio ofrece una computación \textit{serverless}. Permite ejecutar código simplemente subiendo dicho código y seleccionando el entorno de ejecución necesario (Python, NodeJS, Golang, etc.). Su facturación se basa en el uso y permite una gran versatilidad al poder ejecutar piezas de código sin tener que aprovisionar servidores para ello. Permite ejecutarse de multitud de formas como por ejemplo llamánndola desde otro servicio de AWS, a través de una API, de manera manual, etc.
+                        \par
             \end{itemize}
 
       \item \textbf{IoT Services}
