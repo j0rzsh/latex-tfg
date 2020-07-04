@@ -1,0 +1,37 @@
+\documentclass[../../memoria.tex]{subfiles}
+
+\begin{document}
+
+\paragraph{}
+La última prueba realizada será una prueba de concepto ficticia sobre una hipotética situación que se podría dar en el mundo real al implementar un sistema como el del \textit{MVP} desarrollado y a la que se tratará de dar respuesta mediante una de las bases de este proyecto, la infraestructura como código.
+
+\paragraph{}
+Se tiene como supuesto el sistema aquí desarrollado ya desplegado y funcionando en un entorno real. En un momento dado, las necesidades del agricultor cambian y decide implementar un cambio en el sistema, añadiendo algún dipositivo más al mismo. Se obviará la operativa sobre el hardware del sistema ya que no es objetivo de esta prueba ni este proyecto.
+
+\paragraph{}
+Utilizando una metodología tradicional a demanda en el que el agricultor tiene que contactar con los responsables del servicio, el proceso sería el siguiente:
+
+\begin{itemize}
+    \item El agricultor piensa el cambio y contacta con el responsable para explicárselo.
+    \item Una vez llegado a un entendimiento, el responsable del sistema deberá realizar los cambios en el mismo.
+    \item Una vez realizados los cambios, el responsable volverá a contactar con el agricultor indicándole que la petición está resuelta y ya es posible conectar esos dispositivos extra al sistema, enviándole la información que sea necesaria como salida de dichos cambios.
+\end{itemize}
+
+\paragraph{}
+Como se puede observar, la automatización del proceso descrito anteriormente es nula y el tiempo empleado para llevarlo a cabo desde el primer paso hasta el último se puede extender en el tiempo varios días, dependiendo del volumen de este tipo de peticiones que el responsable gestione.
+
+\paragraph{}
+A continuación se va a proponer un modelo diferente orientado a la automatización y que es únicamente posible mediante la utilización de la infraestructura como código:
+
+\begin{itemize}
+    \item El agricultor piensa en el cambio y, mediante algún tipo de aplicación instalada en su móvil o pc puede seleccionar qué cambio es el que quiere aplicar dentro de una lista de posibles cambios.
+    \item Una vez seleccionado, de manera automática se lanzará un proceso de actualización de la infraestructura que mediante variables dentro del código Terraform, aumente el número de dispositivos y envíe al agricultor la salida necesaria de dicha actualización.
+\end{itemize}
+
+\paragraph{}
+Con este último modelo, se evita así la necesidad de interacción entre el agricultor y el técnico, ahorrando una cantidad significativa de tiempo. Mientras que el tiempo del primer escenario se puede alargar en el tiempo horas o incluso días debido a los procesos de soporte tradicionales, el segundo escenario el proceso puede llevarse a cabo en minutos, de manera automatizada y evitando en la medida de lo posible la interacción humana disminuyendo las probabilidades de errores o malentendidos.
+
+\paragraph{}
+Es por ello que en la realización de este proyecto se ha decidido utilizar \textit{IaC}. Hacer uso de esta tecnología permite conseguir un nivel de automatización prácticamente absoluto sobre cualquier infraestructura gestionada.
+
+\end{document}

@@ -5,59 +5,74 @@
 \paragraph{}
 La primera de estas pruebas ha consistido en utilizar el comando time \cite{timelinuxcom} para poder medir el tiempo que tarda el \textit{MVP} en desplegarse y comenzar a funcionar. Se ha ejecutado mediante el comando time el script launch\_tfg.sh tres veces, así como sobre el script destroy\_tfg.sh otras tres veces. De esta forma se puede comprobar cuánto tiempo tarda normalmente en desplegarse y cuánto en destruirse. Los resultados de estas pruebas han sido los siguientes:
 
-\begin{figure}[H]
+\begin{table}[H]
     \centering
-    \begin{minipage}{.5\textwidth}
-        \centering
-        \includegraphics[width=0.6\columnwidth]{pruebaApply1.png}
-        \caption{launch\_tfg.sh. Prueba 1}
-        \label{fig:pruebaApply1}
-    \end{minipage}%
-    \begin{minipage}{.5\textwidth}
-        \centering
-        \includegraphics[width=0.6\columnwidth]{pruebaDestroy1.png}
-        \caption{destroy\_tfg.sh. Prueba 1}
-        \label{fig:pruebaDestroy1}
-    \end{minipage}
-\end{figure}
+    \begin{tabular}{c|c|c|}
+        \cline{2-3}
+        \textbf{}                                   & \textbf{launch\_tfg.sh}  & \textbf{destroy\_tfg.sh} \\ \hline
+        \multicolumn{1}{|c|}{\textbf{Nº de prueba}} & \textbf{Tiempo Empleado} & \textbf{Tiempo Empleado} \\ \hline
+        \multicolumn{1}{|c|}{1}                     & 14m 05s                  & 5m 18s                   \\ \hline
+        \multicolumn{1}{|c|}{2}                     & 13m 53s                  & 5m 18s                   \\ \hline
+        \multicolumn{1}{|c|}{3}                     & 15m 36s                  & 5m 22s                   \\ \hline
+        \multicolumn{1}{|c|}{\textbf{Tiempo medio}} & \textbf{14m 31s}         & \textbf{5m 19s}          \\ \hline
+    \end{tabular}
+    \caption{Prueba de despliegue y destrucción de la infraestructura}
+    \label{tab:caption}
+\end{table}
 
-\begin{figure}[H]
-    \centering
-    \begin{minipage}{.5\textwidth}
-        \centering
-        \includegraphics[width=0.6\columnwidth]{pruebaApply2.png}
-        \caption{launch\_tfg.sh. Prueba 2}
-        \label{fig:pruebaApply2}
-    \end{minipage}%
-    \begin{minipage}{.5\textwidth}
-        \centering
-        \includegraphics[width=0.6\columnwidth]{pruebaDestroy2.png}
-        \caption{destroy\_tfg.sh. Prueba 2}
-        \label{fig:pruebaDestroy2}
-    \end{minipage}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \begin{minipage}{.5\textwidth}
+%         \centering
+%         \includegraphics[width=0.6\columnwidth]{pruebaApply1.png}
+%         \caption{launch\_tfg.sh. Prueba 1}
+%         \label{fig:pruebaApply1}
+%     \end{minipage}%
+%     \begin{minipage}{.5\textwidth}
+%         \centering
+%         \includegraphics[width=0.6\columnwidth]{pruebaDestroy1.png}
+%         \caption{destroy\_tfg.sh. Prueba 1}
+%         \label{fig:pruebaDestroy1}
+%     \end{minipage}
+% \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \begin{minipage}{.5\textwidth}
-        \centering
-        \includegraphics[width=0.6\columnwidth]{pruebaApply3.png}
-        \caption{launch\_tfg.sh. Prueba 3}
-        \label{fig:pruebaApply3}
-    \end{minipage}%
-    \begin{minipage}{.5\textwidth}
-        \centering
-        \includegraphics[width=0.6\columnwidth]{pruebaDestroy3.png}
-        \caption{destroy\_tfg.sh. Prueba 3}
-        \label{fig:pruebaDestroy3}
-    \end{minipage}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \begin{minipage}{.5\textwidth}
+%         \centering
+%         \includegraphics[width=0.6\columnwidth]{pruebaApply2.png}
+%         \caption{launch\_tfg.sh. Prueba 2}
+%         \label{fig:pruebaApply2}
+%     \end{minipage}%
+%     \begin{minipage}{.5\textwidth}
+%         \centering
+%         \includegraphics[width=0.6\columnwidth]{pruebaDestroy2.png}
+%         \caption{destroy\_tfg.sh. Prueba 2}
+%         \label{fig:pruebaDestroy2}
+%     \end{minipage}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \begin{minipage}{.5\textwidth}
+%         \centering
+%         \includegraphics[width=0.6\columnwidth]{pruebaApply3.png}
+%         \caption{launch\_tfg.sh. Prueba 3}
+%         \label{fig:pruebaApply3}
+%     \end{minipage}%
+%     \begin{minipage}{.5\textwidth}
+%         \centering
+%         \includegraphics[width=0.6\columnwidth]{pruebaDestroy3.png}
+%         \caption{destroy\_tfg.sh. Prueba 3}
+%         \label{fig:pruebaDestroy3}
+%     \end{minipage}
+% \end{figure}
 
 \paragraph{}
-Como se puede observar en las imágenes, el sistema tarda de media algo menos de quince minutos en desplegarse completamente. Este despliegue es de infraestructura y del simulador. A partir de ese momento, el simulador ya comienza a enviar datos al IoT Core.
+Como se puede observar en la Tabla 2, el sistema tarda de media catorce minutos y medio en desplegarse completamente. Este despliegue es de infraestructura y del simulador. A partir de ese momento, el simulador ya comienza a enviar datos al IoT Core.
 
 \paragraph{}
-También puede observarse que tarda de media algo más de cinco minutos en destruirse por completo.
+También puede observarse que tarda de media algo más de cinco minutos y diecinueve segundos en destruirse por completo.
 
 \paragraph{}
 Por lo tanto, tras esta prueba se pueden sacar las siguientes conclusiones:
@@ -66,5 +81,6 @@ Por lo tanto, tras esta prueba se pueden sacar las siguientes conclusiones:
     \item Desplegar un sistema en la nube (AWS en este caso) utilizando infraestructura como código es un proceso muy ágil. Se ha conseguido desplegar un sistema complejo, con una base de datos como es Elasticsearch en menos de 15 minutos.
     \item Destruir el sistema creado es incluso más rápido. Además, utilizando \textit{IaC}, no se corre el riesgo de olvidar algún recurso sin destruir que genere gasto de manera indeseada.
     \item En este caso, con AWS y Terraform, los tiempos tanto de despliegue como de destrucción varían muy poco, por lo que se pueden asegurar rangos de tiempos para ambos procesos.
+    \item Usar \textit{IaC} es la mejor manera de poder desplegar y destruir una infraestructura como esta, en un proveedor de nube pública. No utilizar \textit{IaC} implicaría tener que realizar todos estos despliegues y destrucciones de manera manual. Esto se traduciríra en una gran cantidad de tiempo invertida y en una gran posibilidad de error.
 \end{enumerate}
 \end{document}
